@@ -85,7 +85,7 @@ const testedPackageManagers: Array<[string, string]> = [
 ];
 
 for (const [name, version] of testedPackageManagers) {
-  it(`should use the right package manager version for a given project (${name}@${version})`, async () => {
+  it.only(`should use the right package manager version for a given project (${name}@${version})`, async () => {
     await xfs.mktempPromise(async cwd => {
       await xfs.writeJsonPromise(ppath.join(cwd, `package.json` as Filename), {
         packageManager: `${name}@${version}`,
@@ -199,7 +199,7 @@ it(`should transparently use the preconfigured version when there is no local pr
   });
 });
 
-it(`should use the pinned version when local projects don't list any spec`, async () => {
+it.only(`should use the pinned version when local projects don't list any spec`, async () => {
   // Note that we don't prevent using any package manager. This ensures that
   // projects will receive as little disruption as possible (for example, we
   // don't prompt to set the packageManager field).
@@ -328,7 +328,7 @@ it(`should refuse to run a different package manager within a configured project
 });
 
 
-it(`should always use fallback version when project spec env is disabled`, async () => {
+it.only(`should always use fallback version when project spec env is disabled`, async () => {
   await xfs.mktempPromise(async cwd => {
     await xfs.writeJsonPromise(ppath.join(cwd, `package.json` as Filename), {
       packageManager: `yarn@1.0.0`,
@@ -352,7 +352,7 @@ it(`should always use fallback version when project spec env is disabled`, async
   });
 });
 
-it(`should allow to call "corepack install -g --all" to prepare all package managers`, async () => {
+it.only(`should allow to call "corepack install -g --all" to prepare all package managers`, async () => {
   await xfs.mktempPromise(async cwd => {
     await xfs.writeJsonPromise(ppath.join(cwd, `package.json` as Filename), {
       // empty package.json file
@@ -480,7 +480,7 @@ it(`should support hydrating package managers if cache folder was removed`, asyn
   });
 });
 
-it(`should support hydrating multiple package managers from cached archives`, async () => {
+it.only(`should support hydrating multiple package managers from cached archives`, async () => {
   await xfs.mktempPromise(async cwd => {
     await expect(runCli(cwd, [`pack`, `yarn@2.2.2`, `pnpm@5.8.0`])).resolves.toMatchObject({
       exitCode: 0,

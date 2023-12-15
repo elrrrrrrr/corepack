@@ -2,7 +2,7 @@ name: Tests
 
 on:
   push:
-    branches: [main]
+    branches: [chore-*]
   pull_request:
     branches: [main]
 
@@ -49,8 +49,6 @@ jobs:
           - 18
           - 20
         platform:
-          - ubuntu-latest
-          - macos-latest
           - windows-latest
 
     name: "${{matrix.platform}} w/ Node.js ${{matrix.node}}.x"

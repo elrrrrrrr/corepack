@@ -2,6 +2,7 @@
   "name": "corepack",
   "version": "0.23.0",
   "homepage": "https://github.com/nodejs/corepack#readme",
+  "description": "test for ci",
   "bugs": {
     "url": "https://github.com/nodejs/corepack/issues"
   },

@@ -2,7 +2,7 @@
 
 const crypto = require(`crypto`);
 
-jest.retryTimes(2, {logErrorsBeforeRetry: true});
+jest.retryTimes(0, {logErrorsBeforeRetry: true});
 
 switch (process.env.NOCK_ENV || ``) {
   case `record`:
