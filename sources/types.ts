@@ -5,6 +5,7 @@ export enum SupportedPackageManagers {
   Npm = `npm`,
   Pnpm = `pnpm`,
   Yarn = `yarn`,
+  Cnpm = `cnpm`,
 }
 
 export const SupportedPackageManagerSet = new Set<SupportedPackageManagers>(
@@ -47,6 +48,7 @@ export interface PackageManagerSpec {
   url: string;
   bin: BinSpec | BinList;
   registry: RegistrySpec;
+  npmRegistry?: NpmRegistrySpec;
   commands?: {
     use?: Array<string>;
   };
